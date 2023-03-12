@@ -208,6 +208,7 @@ class Crm(Tools):
                 merges the dict with self.reactions
             '''
             header = header.split()
+            print(header)
 
             reaction = {header[0]: {header[1]: {header[2]: Reaction(header[0], 
                 header[1], header[2], reactiondata, coeffs, self.bg, 
@@ -1350,7 +1351,7 @@ class Crm(Tools):
         mat, ext = self.getM(Te, ne, Ti, ni, E, mask=dt,**kwargs) 
         if gl is True:
             # Get matrices and eigenvalues
-            mat, ext, n = self.gl_crm(mat, ext, n=n, Srec=Srec) 
+            mat, ext, n = self.gl_crm(mat, ext, n=n, Srec=Srec)
         # Set external sources to be [1/cm**3/s]
 #        ext[0] = (psorgc + diva + srca + bga)/vol
 #        ext[1] = (divm + srcm + bgm)/vol
