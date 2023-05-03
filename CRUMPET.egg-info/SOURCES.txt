@@ -1,0 +1,11 @@
+setup.py
+CRUMPET/__init__.py
+CRUMPET/crm.py
+CRUMPET/main.py
+CRUMPET/ratedata.py
+CRUMPET/reactions.py
+CRUMPET/tools.py
+CRUMPET.egg-info/PKG-INFO
+CRUMPET.egg-info/SOURCES.txt
+CRUMPET.egg-info/dependency_links.txt
+CRUMPET.egg-info/top_level.txt
