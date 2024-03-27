@@ -57,17 +57,18 @@ class RateData:
         # Jan 2020 versions
         self.reactions = {'FCF':{},'AIK':{}}
         for database, subpath  in rates.items():
-            if (database.upper() == 'AMJUEL') and (subpath is not None):
+            if ('AMJUEL' in database.upper()) and (subpath is not None):
                 self.reactions[database.upper()] = {}
                 self.read_EIRENE(subpath, self.reactions[database], 
                         [500, ['b0','0','a0','h0','p0','k0'], ['a0','h0',
                         'p0','k0'], 45],  path=path)
-            elif (database.upper() == 'HYDHEL') and (subpath is not None):
+            elif ('HYDHEL' in database.upper()) and (subpath is not None):
                 self.reactions[database.upper()] = {}
                 self.read_EIRENE(subpath, self.reactions[database], [150, 
                         ['b0','0','a0','h0'], ['a0','h0'], 80], path=path)
-            elif (database.upper() == 'H2VIBR') and (subpath is not None):
+            elif ('H2VIBR' in database.upper()) and (subpath is not None):
                 self.reactions[database.upper()] = {}
+                self.reactions[database]
                 self.read_EIRENE(subpath, self.reactions[database], [0, 
                         ['b0','0','a0','h0'], ['a0','h0'], 20], path=path)
             elif database[:3].upper() == 'FCF':

@@ -174,7 +174,7 @@ class Crm(Tools):
         '''
         def set_coeffs(header):
             header = header.split()
-            if header[0] in ['AMJUEL','HYDHEL','H2VIBR']:
+            if any(substring in header[0] for substring in ['AMJUEL','HYDHEL','H2VIBR']):
                 try:
                     return rdata[header[0]][header[1]][header[-1].upper()]
                 except:
