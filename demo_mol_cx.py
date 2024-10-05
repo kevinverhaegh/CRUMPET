@@ -14,8 +14,8 @@ def run_demo(input_crm,iso_mass=1,T_request=1):
     #make Te & ne vectors
     Tev = np.linspace(0.2,10,100)
     Tiv = Tev # Assume Ti=Te
-    ne = 1e19*np.ones(np.shape(Tev)) #assume electron density is 1e19 m-3 (should not impact the rates)
-    crm.source[2] = 1e-100 #add small source for numerical stability (only needed if reactions that dissociate are included)
+    ne = 1e13*np.ones(np.shape(Tev)) #assume electron density is 1e19 m-3 (should not impact the rates)
+    #crm.source[2] = 1e-100 #add small source for numerical stability (only needed if reactions that dissociate are included)
 
     #compute vibrational distribution H2
     fv_H2 = np.zeros([15,len(Tev)])
@@ -97,11 +97,11 @@ def run_demo(input_crm,iso_mass=1,T_request=1):
 
 
 
-input_crm = 'input_simple.dat'
+#input_crm = 'input_simple.dat'
 #simple input file with specified reactions (input_simple is only electron-impact interactions)
-run_demo(input_crm)
+#run_demo(input_crm)
 #run demo with deuterium mass rescaling (e.g. molecular CX depends on relative velocity D+ and D2, which is different (at same Ti) for D than H)
-run_demo(input_crm,iso_mass=2)
+#run_demo(input_crm,iso_mass=2)
 input_crm = 'input.dat'
 #simple input file with additional dissociation & molecular depletion channels
-run_demo(input_crm)
+run_demo(input_crm,iso_mass=2)

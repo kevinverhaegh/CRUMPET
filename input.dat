@@ -4,12 +4,8 @@
 # Comments marked by '#'. input cards started by '** ', subcards by '* '
 
 ** SPECIES
-* H(n=1)
-	V 2.375
 * H2+
 	V 15.56
-* H2(v=0)
-	V 0.27504
 * H2(v=1)
 	V 0.79104
 * H2(v=2)
@@ -46,6 +42,10 @@
 	V 0
 * p
 	V 15.975
+* H(n=1)
+	V 2.375
+* H2(v=0)
+	V 0.27504
 
 ** REACTIONS
 # The reactions to be considered from AMJUEL/HYDHEL/H2VIBR listed below.
@@ -72,11 +72,26 @@ e + H2(v=$) > H(n=1) + H-
 * HYDHEL H.2 2.2.10
 e + H2(v=0) > 2*e + p + H(n=1)
 
+* AMJUEL H.4 2.2.14
+e + H2+ > 2*H(n=1)
+
+* AMJUEL H.4 2.2.12
+e + H2+ > e + p + H(n=1)
+
+* AMJUEL H.4 2.2.11
+e + H2+ > 2*e + 2*p
+
+* AMJUEL H.4 7.2.3a
+p + H- > 2*H(n=1)
+
+* AMJUEL H.4 7.2.3b
+p + H- > e + p + H(n=1)
 
 ** RATES
 # Define the files for the standard inputs
 H2VIBR  rates/h2vibr.tex
 HYDHEL rates/hydhel.tex
+AMJUEL rates/amjuel.tex
 
 ** SETTINGS
 # Define the most central parameters to the simulations
@@ -93,6 +108,6 @@ HYDHEL rates/hydhel.tex
 # Initial densities
 # Species without specified densities are assumed to be zero at t=0
 * n0
-H(n=1)      0e12
-H2(v=0)     1e10
+# H(n=1)      0e12
+ H2(v=1)     1e10
 * verbose   0   # Show verbose output
